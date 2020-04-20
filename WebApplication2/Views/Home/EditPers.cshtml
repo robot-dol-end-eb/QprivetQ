@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Edit obj book";
+}
+@model WebApplication2.Models.Table
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditPers</title>
+</head>
+<body>
+    <form action="~/Home/SelectedEditPers" method="post">
+        <p>Изменение запись о клиенте</p>
+        <p>Выберите id клиента для изменения</p>
+        <select name="id">
+            @{
+                for (int i = 0; i < @ViewBag.Pers.Count; i++)
+                {
+                    <option name="@ViewBag.Pers[i].id">@ViewBag.Pers[i].id</option>
+                }
+            }
+        </select><br />
+        <input type="text" name="FIO" placeholder="FIO" /> <br />
+        <input type="text" name="age" placeholder="age" /> <br />
+        <input type="text" name="pasport" placeholder="pasport" /> <br />
+        <input type="text" name="zag_pasport" placeholder="zag_pasport" /> <br />>
+        <input type="submit" name="Edit" value="Изменить" />
+    </form>
+    <br />
+
+</body>
+</html>

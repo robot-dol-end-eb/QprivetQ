@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "chose del";
+}
+@model WebApplication2.Models.Table
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DeletePers</title>
+</head>
+<body>
+    <form action="~/Home/DeletedPers" method="post">
+        <p>Удаление запись о клиенте</p>
+        <p>Выберите id клиента для удаления</p>
+        <select name="id">
+            @{
+                for (int i = 0; i < @ViewBag.Pers.Count; i++)
+                {
+                    <option name="@ViewBag.Pers[i].id">@ViewBag.Pers[i].id</option>
+                }
+            }
+        </select><br />
+        <input type="submit" name="Delete" value="Удалить" />
+    </form>
+</body>
+</html>

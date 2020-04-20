@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Add order";
+}
+@model WebApplication2.Models.Book
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddOrder</title>
+</head>
+<body>
+    <form action="~/Home/OkAddOrder" method="post">
+        <p>Добавить новый заказ</p>
+        <input type="text" name="FIO" placeholder="Фио" /> <br />
+        <input type="text" name="pasport" placeholder="паспорт" /> <br />
+        <p>Выберите id книги </p>
+        <select name="id_book">
+            @{
+                for (int i = 0; i < @ViewBag.Book.Count; i++)
+                {
+                    <option name="@ViewBag.Book[i].id">@ViewBag.Book[i].id</option>
+                }
+            }
+        </select><br />
+        <input type="text" name="cost_del" placeholder="цена доставки" /> <br />
+        <input type="text" name="town" placeholder="город" /> <br />
+        <input type="datetime-local" name="data_del"><br />
+        <input type="submit" name="Add" value="Добавить" />
+    </form>
+</body>
+</html>
